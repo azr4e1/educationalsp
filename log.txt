@@ -1,0 +1,36 @@
+[educationalsp]2024/03/30 01:49:01 main.go:17: Hey, I started!
+[educationalsp]2024/03/30 01:49:01 main.go:37: Received msg with method: initialize
+[educationalsp]2024/03/30 01:49:01 main.go:46: Connected to: helix 23.10 (f6021dd0)
+[educationalsp]2024/03/30 01:49:01 main.go:53: Sent the reply
+[educationalsp]2024/03/30 01:49:01 main.go:37: Received msg with method: initialized
+[educationalsp]2024/03/30 01:49:01 main.go:37: Received msg with method: textDocument/didOpen
+[educationalsp]2024/03/30 01:49:01 main.go:60: Opened: file:///home/ld/Desktop/Projects/educationalsp/prova.md ok
+[educationalsp]2024/03/30 01:49:05 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:05 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 1
+[educationalsp]2024/03/30 01:49:05 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:05 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 2
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 3
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 4
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 5
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 6
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 7
+[educationalsp]2024/03/30 01:49:06 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:06 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 8
+[educationalsp]2024/03/30 01:49:07 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:07 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 9
+[educationalsp]2024/03/30 01:49:07 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:07 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 10
+[educationalsp]2024/03/30 01:49:07 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:07 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 11
+[educationalsp]2024/03/30 01:49:07 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:07 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 12
+[educationalsp]2024/03/30 01:49:07 main.go:37: Received msg with method: textDocument/didChange
+[educationalsp]2024/03/30 01:49:07 main.go:71: Changed document: file:///home/ld/Desktop/Projects/educationalsp/prova.md, Version: 13
+[educationalsp]2024/03/30 01:49:09 main.go:37: Received msg with method: textDocument/definition
+[educationalsp]2024/03/30 01:49:19 main.go:37: Received msg with method: textDocument/definition
+[educationalsp]2024/03/30 02:00:35 main.go:37: Received msg with method: shutdown
