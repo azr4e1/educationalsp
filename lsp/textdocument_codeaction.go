@@ -1,6 +1,6 @@
 package lsp
 
-type CodeActionTextDocument struct {
+type CodeActionTextDocumentRequest struct {
 	Request
 	Params CodeActionParams `json:"params"`
 }

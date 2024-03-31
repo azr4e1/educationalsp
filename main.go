@@ -91,6 +91,19 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 
 		response := state.Definition(request.ID, request.Param.TextDocument.URI, request.Param.Position)
 		writeResponse(writer, response)
+	case "textDocument/codeAction":
+		var request lsp.CodeActionTextDocumentRequest
+		if err := json.Unmarshal(contents, &request); err != nil {
+			logger.Printf("Hey, we couldn't parse this: %s", err)
+			return
+		}
+
+		// create a response
+		response := state.TextDocumentCodeAction(request.ID, request.Params.TextDocument.URI)
+
+		// write it back
+		writeResponse(writer, response)
+
 	}
 }
 
