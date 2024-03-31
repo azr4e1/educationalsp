@@ -12,6 +12,8 @@ import (
 	"github.com/azr4e1/educationalsp/rpc"
 )
 
+var Shutdown bool
+
 func main() {
 	logger := getLogger("/home/ld/Desktop/Projects/educationalsp/log.txt")
 	logger.Println("Hey, I started!")
@@ -132,6 +134,25 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 		response := state.Completion(request.ID, request.Params.TextDocument.URI)
 
 		writeResponse(writer, response)
+	case "shutdown":
+		var request lsp.ShutdownRequest
+		if err := json.Unmarshal(contents, &request); err != nil {
+			logger.Printf("Hey, we couldn't parse this: %s", err)
+		}
+		response := lsp.ShutdownResponse{
+			Response: lsp.Response{
+				RPC: "2.0",
+				ID:  &request.ID,
+			},
+			Result: nil,
+		}
+		writeResponse(writer, response)
+		Shutdown = true
+	case "exit":
+		if !Shutdown {
+			os.Exit(1)
+		}
+		os.Exit(0)
 	}
 }
 
