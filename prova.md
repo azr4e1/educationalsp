@@ -1,4 +1,0 @@
-ok
-ciao
-come
-va
