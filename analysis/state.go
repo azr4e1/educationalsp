@@ -55,7 +55,7 @@ func (s *State) Definition(id int, uri string, position lsp.Position) lsp.Defini
 				},
 				End: lsp.Position{
 					Line:      position.Line - 1,
-					Character: 0,
+					Character: 1,
 				},
 			},
 		},
