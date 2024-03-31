@@ -61,7 +61,18 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 			request.Params.TextDocument.URI,
 			request.Params.TextDocument.Text,
 		)
-		state.OpenDocument(request.Params.TextDocument.URI, request.Params.TextDocument.Text)
+		diagnostics := state.OpenDocument(request.Params.TextDocument.URI, request.Params.TextDocument.Text)
+		writeResponse(writer, lsp.PublishDiagnosticsNotification{
+			Notification: lsp.Notification{
+				RPC:    "2.0",
+				Method: "textDocument/publishDiagnostics",
+			},
+			Params: lsp.PublishDiagnosticsParams{
+				URI:         request.Params.TextDocument.URI,
+				Diagnostics: diagnostics,
+			},
+		})
+
 	case "textDocument/didChange":
 		var request lsp.DidChangeTextDocument
 		if err := json.Unmarshal(contents, &request); err != nil {
@@ -73,7 +84,17 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 			request.Params.TextDocument.Version,
 		)
 		for _, change := range request.Params.ContentChanges {
-			state.Update(request.Params.TextDocument.URI, change.Text)
+			diagnostics := state.Update(request.Params.TextDocument.URI, change.Text)
+			writeResponse(writer, lsp.PublishDiagnosticsNotification{
+				Notification: lsp.Notification{
+					RPC:    "2.0",
+					Method: "textDocument/publishDiagnostics",
+				},
+				Params: lsp.PublishDiagnosticsParams{
+					URI:         request.Params.TextDocument.URI,
+					Diagnostics: diagnostics,
+				},
+			})
 		}
 	case "textDocument/hover":
 		var request lsp.HoverTextDocumentRequest
@@ -99,11 +120,18 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 		}
 
 		// create a response
-		response := state.TextDocumentCodeAction(request.ID, request.Params.TextDocument.URI)
+		response := state.CodeAction(request.ID, request.Params.TextDocument.URI)
 
 		// write it back
 		writeResponse(writer, response)
+	case "textDocument/completion":
+		var request lsp.CompletionTextDocumentRequest
+		if err := json.Unmarshal(contents, &request); err != nil {
+			logger.Printf("Hey, we couldn't parse this: %s", err)
+		}
+		response := state.Completion(request.ID, request.Params.TextDocument.URI)
 
+		writeResponse(writer, response)
 	}
 }
 

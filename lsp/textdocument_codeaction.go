@@ -12,7 +12,7 @@ type CodeActionParams struct {
 }
 
 type CodeActionContext struct {
-	Diagnostics []Diagnostics `json:"diagnostics"`
+	Diagnostics []Diagnostic `json:"diagnostics"`
 }
 
 type CodeActionResponse struct {

@@ -36,11 +36,6 @@ type Range struct {
 	End   Position `json:"end"`
 }
 
-type Diagnostics struct {
-	Range   Range  `json:"range"`
-	Message string `json:"message"`
-}
-
 type WorkspaceEdit struct {
 	Changes map[string][]TextEdit `json:"changes"`
 }
